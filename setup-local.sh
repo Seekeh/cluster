@@ -19,4 +19,7 @@ helm install crossplane --namespace crossplane-system crossplane-stable/crosspla
 # Installing Crossplane CLI for kubectl
 curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh
 
-rm kubectl-crossplane
+kubectl apply -f crossplane-config/provider-helm.yaml
+kubectl apply -f crossplane-config/provider-sql.yaml
+
+echo "[IMPORTANT] Remember to run if using crossplane for the first time: sudo mv kubectl-crossplane /usr/local/bin"
